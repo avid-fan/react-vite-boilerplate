@@ -4,11 +4,11 @@
         "es2021": true
     },
     "extends": [
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:@typescript-eslint/recommended",
         "airbnb",
         "airbnb-typescript",
-        "airbnb/hooks",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        "airbnb/hooks"
     ],
     "parser": "@typescript-eslint/parser",
     "overrides": [
@@ -20,8 +20,16 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
     ],
     "rules": {
+        "react/require-default-props": [
+            "error",
+            {
+                "functions": "defaultArguments"
+            }
+        ],
+        "react/jsx-one-expression-per-line": "off"
     }
 }
