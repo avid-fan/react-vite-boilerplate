@@ -10,7 +10,8 @@
     "eslint": "eslint .  --ext .js,.jsx,.ts,.tsx",
     "eslint:fix": "eslint --fix .  --ext .js,.jsx,.ts,.tsx",
     "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc.json",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint-staged": "lint-staged --allow-empty"
   },
   "dependencies": {
     "react": "18.2.0",
@@ -30,9 +31,19 @@
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-react": "7.31.10",
     "eslint-plugin-react-hooks": "4.3.0",
+    "husky": "8.0.0",
+    "lint-staged": "13.0.3",
     "prettier": "2.7.1",
     "typescript": "4.6.4",
-    "vite": "3.2.0",
-    "husky": "8.0.0"
+    "vite": "3.2.0"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write --config ./.prettierrc.json",
+      "git add"
+    ],
+    "**/*.{js,jsx,ts,tsx}": [
+      "yarn eslint ."
+    ]
   }
 }
